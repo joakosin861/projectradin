@@ -1,0 +1,23 @@
+{% extends 'plantilla.html' %}
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block titulo %}<title>Home</title>{% endblock %}
+</head>
+<body>
+{% block content %}
+    <div class="container col-sm-2">
+        <form method="post" class="form-label" class="row">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary" style="margin-top: 5%">Enviar datos</button>
+        </form>
+    </div>
+
+
+{% endblock %}
+</body>
+</html>

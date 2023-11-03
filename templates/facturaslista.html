@@ -1,0 +1,33 @@
+{% extends 'plantilla.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block titulo %} <title>Facturas</title> {% endblock %}
+</head>
+<body>
+{% block content %}
+    <div class="container-md">
+        <table class="table">
+            <tr>
+                <th>Detalle</th>
+                <th>Número de Factura</th>
+                <th>Agregada en</th>
+                <th><a href="{% url 'agregar_factura' %}"><button class="btn btn-success">Cargar factura</button></a></th>
+            </tr>
+            {% for factura in facturas %}
+                <tr>
+                    <td>{{ factura.detalle }}</td>
+                    <td>#{{ factura.num_factura }}</td>
+                    <td>{{ factura.agregado }}</td>
+                    <td>
+                        <a href="{% url 'eliminar_factura'  factura.id %}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+
+</body>
+</html>
